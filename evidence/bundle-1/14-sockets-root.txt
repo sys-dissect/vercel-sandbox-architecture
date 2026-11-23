@@ -1,0 +1,11 @@
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
+LISTEN 0      4096               *:23456            *:*          
+---
+State Recv-Q Send-Q        Local Address:Port          Peer Address:Port Process                           
+ESTAB 0      0               169.254.0.2:50040       199.38.181.166:443   users:(("tailcat",pid=923,fd=15))
+ESTAB 0      0      [::ffff:169.254.0.2]:23456 [::ffff:169.254.0.1]:41738                                  
+---
+Netid State  Recv-Q Send-Q               Local Address:Port Peer Address:PortProcess                             
+u_str LISTEN 0      4096             /run/apm/apm.sock 564             * 0                                       
+u_str LISTEN 0      4096   /run/vercel/share/init.sock 1112            * 0    users:(("sandbox-init",pid=1,fd=4))
+u_str LISTEN 0      4096           /run/cell/cell.sock 568             * 0                                       

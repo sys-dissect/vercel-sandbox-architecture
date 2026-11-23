@@ -1,0 +1,7 @@
+{
+  "pid1_seccomp_status": [
+    "Seccomp:\t2",
+    "Seccomp_filters:\t1"
+  ],
+  "filter_query": "No filter or error: 13"
+}

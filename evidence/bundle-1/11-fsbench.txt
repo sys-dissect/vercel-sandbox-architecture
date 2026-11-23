@@ -1,0 +1,3 @@
+write+fsync 1MB 4K: 3.2 ms
+read 1MB 4K: 0.3 ms
+stat: 959 ns avg

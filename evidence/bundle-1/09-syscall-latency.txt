@@ -1,0 +1,3 @@
+getpid: 154.1 ns avg over 20000 iters
+clock_gettime_ns: 109.6 ns avg over 20000 iters
+uid: 0 pid: 1803 ppid: 964

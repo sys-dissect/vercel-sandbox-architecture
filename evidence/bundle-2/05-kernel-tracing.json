@@ -1,0 +1,17 @@
+{
+  "modules_disabled": "1",
+  "mount_tracefs_error": "[Errno 1] Operation not permitted: '/sys/kernel/tracing'",
+  "kptr_restrict": "1",
+  "kallsyms_sample": [
+    "ffffffff81000000 T srso_alias_untrain_ret",
+    "ffffffff81000000 T _stext",
+    "ffffffff81000000 T _text",
+    "ffffffff81000000 T __pi__text",
+    "ffffffff81000010 T __entry_text_start"
+  ],
+  "sys_bpf_map_create": {
+    "result_fd": 4,
+    "errno": 13,
+    "msg": "SUCCESS"
+  }
+}

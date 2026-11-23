@@ -1,0 +1,21 @@
+{
+  "cgroup_memory_events": [
+    "low 0",
+    "high 0",
+    "max 0",
+    "oom 0",
+    "oom_kill 0",
+    "oom_group_kill 0"
+  ],
+  "entropy_available": 256,
+  "hwrng_devices": [
+    "uevent",
+    "rng_selected",
+    "rng_current",
+    "rng_quality",
+    "power",
+    "dev",
+    "rng_available",
+    "subsystem"
+  ]
+}

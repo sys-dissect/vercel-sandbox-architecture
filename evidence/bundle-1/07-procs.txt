@@ -1,0 +1,86 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+ubuntu         1  0.0  0.3 1270600 15184 ?       Ssl  14:13   0:00 /run/vercel/share/sandbox-init --socket=/run/vercel/share/init.sock --pubkey=[REDACTED]
+ubuntu       923  0.0  0.6 1345280 28488 ?       Sl   14:18   0:00 tailcat serve all,no-auth-ssh
+root         962  0.0  0.1  16612  7284 ?        S    14:27   0:00 sudo bash /tmp/run-probe.sh
+root         964  0.0  0.0   4948  3728 ?        S    14:27   0:00  \_ bash /tmp/run-probe.sh
+root        1714  0.0  0.0   7160  4280 ?        R    14:27   0:00      \_ ps auxf
+---
+PID1 cmdline:
+/run/vercel/share/sandbox-init --socket=/run/vercel/share/init.sock --pubkey=[REDACTED] 
+---
+Name:	sandbox-init
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1
+Ngid:	0
+Pid:	1
+PPid:	0
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	64
+Groups:	4 20 24 25 27 29 30 44 46 
+NStgid:	1
+NSpid:	1
+NSpgid:	1
+NSsid:	1
+Kthread:	0
+VmPeak:	 1270600 kB
+VmSize:	 1270600 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   15184 kB
+VmRSS:	   15184 kB
+RssAnon:	    5512 kB
+RssFile:	    9672 kB
+RssShmem:	       0 kB
+VmData:	   79156 kB
+VmStk:	     132 kB
+VmExe:	    5068 kB
+VmLib:	       8 kB
+VmPTE:	     116 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	7
+SigQ:	0/17113
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	fffffffc3bba3a00
+SigIgn:	0000000000000000
+SigCgt:	fffffffd7fc1feff
+CapInh:	000001ffffffffff
+CapPrm:	000001ffffffffff
+CapEff:	000001ffffffffff
+CapBnd:	000001ffffffffff
+CapAmb:	000001ffffffffff
+NoNewPrivs:	0
+Seccomp:	2
+Seccomp_filters:	1
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	3
+Cpus_allowed_list:	0-1
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	27
+nonvoluntary_ctxt_switches:	10
+---
+total 0
+dr-x------  2 ubuntu ubuntu 11 Nov 23 14:16 .
+dr-xr-xr-x  9 ubuntu ubuntu  0 Nov 23 14:13 ..
+lr-x------  1 ubuntu ubuntu 64 Nov 23 14:16 0 -> pipe:[1091]
+l-wx------  1 ubuntu ubuntu 64 Nov 23 14:16 1 -> pipe:[1089]
+lr-x------  1 ubuntu ubuntu 64 Nov 23 14:16 10 -> pipe:[2739]
+lrwx------  1 ubuntu ubuntu 64 Nov 23 14:16 15 -> anon_inode:[pidfd]
+l-wx------  1 ubuntu ubuntu 64 Nov 23 14:16 2 -> pipe:[1090]
+lr-x------  1 ubuntu ubuntu 64 Nov 23 14:16 3 -> /sys/fs/cgroup/cpu.max
+lrwx------+ 1 ubuntu ubuntu 64 Nov 23 14:16 4 -> socket:[1112]
+lrwx------  1 ubuntu ubuntu 64 Nov 23 14:16 5 -> anon_inode:[eventpoll]
+lrwx------  1 ubuntu ubuntu 64 Nov 23 14:16 6 -> anon_inode:[eventfd]
+lrwx------+ 1 ubuntu ubuntu 64 Nov 23 14:16 7 -> socket:[2736]
+lr-x------  1 ubuntu ubuntu 64 Nov 23 14:16 8 -> pipe:[2738]
+---
+lrwxrwxrwx 1 ubuntu ubuntu 0 Nov 23 14:27 /proc/1/root -> /

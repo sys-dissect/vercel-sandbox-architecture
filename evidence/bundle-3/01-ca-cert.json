@@ -1,0 +1,38 @@
+{
+  "text": [
+    "Certificate:",
+    "    Data:",
+    "        Version: 3 (0x2)",
+    "        Serial Number:",
+    "            b8:6e:81:56:fe:69:4d:81:35:5f:25:46:2c:d3:5f:26",
+    "        Signature Algorithm: ecdsa-with-SHA256",
+    "        Issuer: O=Vercel, CN=Vercel Network Proxy CA",
+    "        Validity",
+    "            Not Before: Nov 23 14:12:45 2026 GMT",
+    "            Not After : Nov 24 14:32:45 2026 GMT",
+    "        Subject: O=Vercel, CN=Vercel Network Proxy CA",
+    "        Subject Public Key Info:",
+    "            Public Key Algorithm: id-ecPublicKey",
+    "                Public-Key: (256 bit)",
+    "                pub:",
+    "                    [REDACTED]",
+    "                ASN1 OID: prime256v1",
+    "                NIST CURVE: P-256",
+    "        X509v3 extensions:",
+    "            X509v3 Key Usage: critical",
+    "                Certificate Sign, CRL Sign",
+    "            X509v3 Basic Constraints: critical",
+    "                CA:TRUE, pathlen:0",
+    "            X509v3 Subject Key Identifier: ",
+    "                43:1D:58:93:02:8E:D6:E1:F3:9A:AA:92:34:4A:6C:49:4C:47:BB:78",
+    "    Signature Algorithm: ecdsa-with-SHA256",
+    "    Signature Value:",
+    "        [REDACTED]"
+  ],
+  "summary": [
+    "subject=O=Vercel, CN=Vercel Network Proxy CA",
+    "issuer=O=Vercel, CN=Vercel Network Proxy CA",
+    "notBefore=Nov 23 14:12:45 2026 GMT",
+    "notAfter=Nov 24 14:32:45 2026 GMT"
+  ]
+}

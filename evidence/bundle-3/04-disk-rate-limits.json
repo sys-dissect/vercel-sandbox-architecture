@@ -1,0 +1,6 @@
+{
+  "write_4k_unbuffered_ops_sec": 529267.2,
+  "write_4k_unbuffered_elapsed_s": 0.002,
+  "seq_write_32mb_throughput_mb_s": 2651.05,
+  "seq_write_32mb_elapsed_s": 0.012
+}

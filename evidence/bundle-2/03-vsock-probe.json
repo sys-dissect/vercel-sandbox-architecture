@@ -1,0 +1,89 @@
+{
+  "guest_cid_error": "[Errno 25] Inappropriate ioctl for device",
+  "host_cid_2_scan": [
+    {
+      "port": 22,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 52,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 80,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 443,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 1024,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 1025,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 2049,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 2345,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 23456,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 5000,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 5005,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 5201,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 8000,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 8080,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 9999,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 10000,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 10701,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 10702,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 10703,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 30000,
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "port": 50000,
+      "error": "[Errno 13] Permission denied"
+    }
+  ]
+}

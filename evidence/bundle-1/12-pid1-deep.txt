@@ -1,0 +1,48 @@
+== /proc/1/exe
+lrwxrwxrwx 1 ubuntu ubuntu 0 Nov 23 14:13 /proc/1/exe -> /run/vercel/share/sandbox-init
+/proc/1/exe: symbolic link to /run/vercel/share/sandbox-init
+---
+== readelf -h
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x490b20
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          400 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         6
+  Size of section headers:           64 (bytes)
+  Number of section headers:         16
+  Section header string table index: 15
+---
+== /proc/1/cwd
+lrwxrwxrwx 1 ubuntu ubuntu 0 Nov 23 14:27 /proc/1/cwd -> /vercel
+---
+== /proc/1/root
+lrwxrwxrwx 1 ubuntu ubuntu 0 Nov 23 14:27 /proc/1/root -> /
+---
+== /proc/1/environ (redacted)
+PATH=/vercel/.local/bin:/vercel/.global/pnpm/bin:/vercel/.global/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LANG=C.UTF-8
+HOME=/vercel
+SHELL=/bin/bash
+AWS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+CARGO_HTTP_CAINFO=/etc/ssl/certs/ca-certificates.crt
+CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
+GRPC_DEFAULT_SSL_ROOTS_FILE_PATH=/etc/ssl/certs/ca-certificates.crt
+NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+NODE_USE_SYSTEM_CA=1
+NPM_CONFIG_CAFILE=/etc/ssl/certs/ca-certificates.crt
+PIP_CERT=/etc/ssl/certs/ca-certificates.crt
+REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt

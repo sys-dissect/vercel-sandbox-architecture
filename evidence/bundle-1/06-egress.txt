@@ -1,0 +1,7 @@
+== https://example.com
+200 time=0.033366s
+== https://1.1.1.1
+301 time=0.024362s
+== metadata 169.254.169.254
+000 time=3.002319s
+FAILED

@@ -1,0 +1,29 @@
+Linux 331a024e-31b 6.18.56 #1 SMP Fri Nov 20 05:34:02 UTC 2026 x86_64 GNU/Linux
+---
+Linux version 6.18.56 (root@buildkitsandbox) (gcc (Debian 12.2.0-14+deb12u1) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #1 SMP Fri Nov 20 05:34:02 UTC 2026
+---
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
+---
+331a024e-31b
+Mon Nov 23 14:27:19 UTC 2026
+ 14:27:19 up 14 min,  0 users,  load average: 0.15, 0.03, 0.01
+---
+uid=0(root) gid=0(root) groups=0(root)
+root
+---
+reboot=k panic=1 nomodule ip=169.254.0.2::169.254.0.1:255.255.255.255:::off:169.254.0.1:: psi=1 ro i8042.nomux init=/opt/vercel/celld-init.sh i8042.noaux i8042.dumbkbd quiet root_container_telemetry_sockets=apm build_version=2026.11.20-18b806b9453c0071fa35c268e0c4ea72daf7a06b console=ttyS0 i8042.nopnp remove_blocked_ca_roots=1 pci=off virtio_mmio.device=4K@0xc0001000:5 root=/dev/vda rw virtio_mmio.device=4K@0xc0002000:6 virtio_mmio.device=4K@0xc0003000:7 virtio_mmio.device=4K@0xc0004000:8 virtio_mmio.device=4K@0xc0005000:9 virtio_mmio.device=4K@0xc0006000:10
+
+---
+vercel-evidence

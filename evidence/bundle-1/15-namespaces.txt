@@ -1,0 +1,26 @@
+== self ns
+/proc/self/ns/cgroup -> cgroup:[4026532116]
+/proc/self/ns/ipc -> ipc:[4026532114]
+/proc/self/ns/mnt -> mnt:[4026532112]
+/proc/self/ns/net -> net:[4026531833]
+/proc/self/ns/pid -> pid:[4026532115]
+/proc/self/ns/pid_for_children -> pid:[4026532115]
+/proc/self/ns/time -> time:[4026531834]
+/proc/self/ns/time_for_children -> time:[4026531834]
+/proc/self/ns/user -> user:[4026531837]
+/proc/self/ns/uts -> uts:[4026532113]
+---
+== pid1 ns
+/proc/1/ns/cgroup -> cgroup:[4026532116]
+/proc/1/ns/ipc -> ipc:[4026532114]
+/proc/1/ns/mnt -> mnt:[4026532112]
+/proc/1/ns/net -> net:[4026531833]
+/proc/1/ns/pid -> pid:[4026532115]
+/proc/1/ns/pid_for_children -> pid:[4026532115]
+/proc/1/ns/time -> time:[4026531834]
+/proc/1/ns/time_for_children -> time:[4026531834]
+/proc/1/ns/user -> user:[4026531837]
+/proc/1/ns/uts -> uts:[4026532113]
+---
+== nsenter pid1 (hostname)
+331a024e-31b

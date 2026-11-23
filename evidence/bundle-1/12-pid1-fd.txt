@@ -1,0 +1,28 @@
+== /proc/1/fd
+total 0
+dr-x------  2 ubuntu ubuntu 11 Nov 23 14:16 .
+dr-xr-xr-x  9 ubuntu ubuntu  0 Nov 23 14:13 ..
+lr-x------  1 ubuntu ubuntu 64 Nov 23 14:16 0 -> pipe:[1091]
+l-wx------  1 ubuntu ubuntu 64 Nov 23 14:16 1 -> pipe:[1089]
+lr-x------  1 ubuntu ubuntu 64 Nov 23 14:16 10 -> pipe:[2739]
+lrwx------  1 ubuntu ubuntu 64 Nov 23 14:16 15 -> anon_inode:[pidfd]
+l-wx------  1 ubuntu ubuntu 64 Nov 23 14:16 2 -> pipe:[1090]
+lr-x------  1 ubuntu ubuntu 64 Nov 23 14:16 3 -> /sys/fs/cgroup/cpu.max
+lrwx------+ 1 ubuntu ubuntu 64 Nov 23 14:16 4 -> socket:[1112]
+lrwx------  1 ubuntu ubuntu 64 Nov 23 14:16 5 -> anon_inode:[eventpoll]
+lrwx------  1 ubuntu ubuntu 64 Nov 23 14:16 6 -> anon_inode:[eventfd]
+lrwx------+ 1 ubuntu ubuntu 64 Nov 23 14:16 7 -> socket:[2736]
+lr-x------  1 ubuntu ubuntu 64 Nov 23 14:16 8 -> pipe:[2738]
+---
+== fd targets
+/proc/1/fd/0 -> pipe:[1091]
+/proc/1/fd/1 -> pipe:[1089]
+/proc/1/fd/10 -> pipe:[2739]
+/proc/1/fd/15 -> anon_inode:[pidfd]
+/proc/1/fd/2 -> pipe:[1090]
+/proc/1/fd/3 -> /sys/fs/cgroup/cpu.max
+/proc/1/fd/4 -> socket:[1112]
+/proc/1/fd/5 -> anon_inode:[eventpoll]
+/proc/1/fd/6 -> anon_inode:[eventfd]
+/proc/1/fd/7 -> socket:[2736]
+/proc/1/fd/8 -> pipe:[2738]

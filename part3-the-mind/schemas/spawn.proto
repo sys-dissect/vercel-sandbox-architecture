@@ -1,0 +1,143 @@
+// spawn.proto — reconstruction of the Vercel Sandbox SpawnService.
+//
+// RECONSTRUCTED FROM BINARY STRINGS. This file was NOT derived from a
+// FileDescriptorProto embedded in the binary, and no .proto source was
+// recovered. It was assembled from the protobuf type names, message
+// names, and Connect handler signatures visible in the strings of the
+// sandbox-init binary (Go 1.26.10, statically linked, stripped).
+//
+// What is observed (Tier 1, from strings):
+//   - package vercel.sandbox.spawn.v1, service SpawnService
+//   - the six method names and their streaming shapes
+//   - the message type names listed below
+//   - StdinResponse.bytes_written is field 1 (uint64, varint)
+//   - SpawnEvent has a oneof named "event"
+//   - PtyInput has a oneof named "input"
+//   - PtyOutput has a oneof named "output"
+//
+// What is NOT verified:
+//   - every field number except StdinResponse.bytes_written = 1.
+//     All other field numbers in this file are placeholders chosen
+//     for readability. Do not treat them as the wire format.
+//   - the Pty method name. It is inferred from PtyInput/PtyOutput
+//     (Tier 2). The exact RPC name was not directly observed.
+//   - the contents of the request/response messages whose fields were
+//     not visible in strings. Those messages are left empty here with
+//     a note; their real fields are unknown.
+//   - the members of the PtyInput/PtyOutput oneofs beyond the named
+//     message types. The `bytes data` members are the obvious shape
+//     for a PTY byte stream, but they are inferred, not observed.
+//
+// Source module (from binary strings):
+//   github.com/vercel/api/hive-containers/sandbox-controller/gen/spawn
+
+syntax = "proto3";
+
+package vercel.sandbox.spawn.v1;
+
+// SpawnService is the control-plane API served by sandbox-init (PID 1)
+// over ConnectRPC (h2c + protobuf) on /run/vercel/share/init.sock.
+// Connect paths follow /<package>.<Service>/<Method>.
+service SpawnService {
+  // Spawn a process. Server-streaming: the server sends SpawnEvent
+  // messages (SpawnStarted, then ExitStatus) until the process exits.
+  rpc Spawn(SpawnRequest) returns (stream SpawnEvent);
+
+  // Write bytes to a spawned process's stdin. Returns bytes written.
+  rpc Stdin(StdinRequest) returns (StdinResponse);
+
+  // Kill a spawned process.
+  rpc Kill(KillRequest) returns (KillResponse);
+
+  // Health check.
+  rpc Ping(PingRequest) returns (PingResponse);
+
+  // Interactive PTY session. Bidirectional streaming.
+  // Method name inferred from PtyInput/PtyOutput (Tier 2).
+  rpc Pty(stream PtyInput) returns (stream PtyOutput);
+
+  // Enable signed git (commit signing) inside the sandbox.
+  rpc EnableSignedGit(EnableSignedGitRequest) returns (EnableSignedGitResponse);
+}
+
+// SpawnRequest: no fields were observed in binary strings.
+// The real request carries the command and its execution context;
+// those fields are unknown. Body left empty rather than guessed.
+message SpawnRequest {}
+
+// SpawnEvent carries one event in the Spawn stream.
+message SpawnEvent {
+  oneof event {
+    // Field numbers are placeholders, not verified.
+    SpawnStarted started = 1;
+    ExitStatus exit_status = 2;
+  }
+}
+
+// SpawnStarted: no fields were observed in binary strings.
+message SpawnStarted {}
+
+// ExitStatus: no fields were observed in binary strings.
+// The real message carries the process exit status; its fields
+// are unknown. Body left empty rather than guessed.
+message ExitStatus {}
+
+// StdinRequest: no fields were observed in binary strings.
+message StdinRequest {}
+
+// StdinResponse. bytes_written is the one field number verified
+// from the binary strings (varint, field 1).
+message StdinResponse {
+  uint64 bytes_written = 1;
+}
+
+// KillRequest: no fields were observed in binary strings.
+message KillRequest {}
+
+// KillResponse: no fields were observed in binary strings.
+message KillResponse {}
+
+// PingRequest: no fields were observed in binary strings.
+message PingRequest {}
+
+// PingResponse: no fields were observed in binary strings.
+message PingResponse {}
+
+// PtyInput carries one input in the Pty bidi stream.
+// The oneof is named "input" (observed). Members and field numbers
+// are placeholders except for the named message types, which were
+// observed. The `bytes data` member is inferred (a PTY stream
+// carries raw bytes); it was not directly observed.
+message PtyInput {
+  oneof input {
+    PtyStart start = 1;
+    PtyResize resize = 2;
+    bytes data = 3;
+  }
+}
+
+// PtyOutput carries one output in the Pty bidi stream.
+// The oneof is named "output" (observed). Members and field numbers
+// are placeholders except for the named message type, which was
+// observed. The `bytes data` member is inferred.
+message PtyOutput {
+  oneof output {
+    PtyStarted started = 1;
+    bytes data = 2;
+  }
+}
+
+// PtyStart: no fields were observed in binary strings.
+message PtyStart {}
+
+// PtyStarted: no fields were observed in binary strings.
+message PtyStarted {}
+
+// PtyResize: no fields were observed in binary strings.
+message PtyResize {}
+
+// EnableSignedGitRequest: no fields were observed in binary strings.
+message EnableSignedGitRequest {}
+
+// EnableSignedGitResponse: no fields were observed in binary strings.
+message EnableSignedGitResponse {}

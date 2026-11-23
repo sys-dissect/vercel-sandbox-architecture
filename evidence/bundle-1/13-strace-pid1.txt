@@ -1,0 +1,3 @@
+2     tgkill(1, 6, SIGURG)              = 0
+6     --- SIGURG {si_signo=SIGURG, si_code=SI_TKILL, si_pid=1, si_uid=1000} ---
+6     rt_sigreturn({mask=[]})           = 0

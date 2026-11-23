@@ -1,0 +1,72 @@
+{
+  "pci_bus": "ABSENT (Classic Firecracker / MicroVM signature)",
+  "pci_devices": [],
+  "virtio_devices": [
+    {
+      "device": "virtio1",
+      "type_id": "0x0002"
+    },
+    {
+      "device": "virtio4",
+      "type_id": "0x0013"
+    },
+    {
+      "device": "virtio2",
+      "type_id": "0x0002"
+    },
+    {
+      "device": "virtio0",
+      "type_id": "0x0005"
+    },
+    {
+      "device": "virtio5",
+      "type_id": "0x0004"
+    },
+    {
+      "device": "virtio3",
+      "type_id": "0x0001"
+    }
+  ],
+  "acpi_present": true,
+  "interrupts": [
+    " 26:         39          0  IO-APIC   5-edge      virtio0\n",
+    " 27:        853          0  IO-APIC   6-edge      virtio1\n",
+    " 28:          0       8928  IO-APIC   7-edge      virtio2\n",
+    " 29:       6644          0  IO-APIC   8-edge      virtio3\n",
+    " 30:          0       3452  IO-APIC   9-edge      virtio4\n",
+    " 31:          0         31  IO-APIC  10-edge      virtio5\n"
+  ],
+  "cmdline": "reboot=k panic=1 nomodule ip=169.254.0.2::169.254.0.1:255.255.255.255:::off:169.254.0.1:: psi=1 ro i8042.nomux init=/opt/vercel/celld-init.sh i8042.noaux i8042.dumbkbd quiet root_container_telemetry_sockets=apm build_version=2026.11.20-18b806b9453c0071fa35c268e0c4ea72daf7a06b console=ttyS0 i8042.nopnp remove_blocked_ca_roots=1 pci=off virtio_mmio.device=4K@0xc0001000:5 root=/dev/vda rw virtio_mmio.device=4K@0xc0002000:6 virtio_mmio.device=4K@0xc0003000:7 virtio_mmio.device=4K@0xc0004000:8 virtio_mmio.device=4K@0xc0005000:9 virtio_mmio.device=4K@0xc0006000:10",
+  "dmesg_hyp": [
+    "[    0.000000] Command line: reboot=k panic=1 nomodule ip=169.254.0.2::169.254.0.1:255.255.255.255:::off:169.254.0.1:: psi=1 ro i8042.nomux init=/opt/vercel/celld-init.sh i8042.noaux i8042.dumbkbd quiet root_container_telemetry_sockets=apm build_version=2026.11.20-18b806b9453c0071fa35c268e0c4ea72daf7a06b console=ttyS0 i8042.nopnp remove_blocked_ca_roots=1 pci=off virtio_mmio.device=4K@0xc0001000:5 root=/dev/vda rw virtio_mmio.device=4K@0xc0002000:6 virtio_mmio.device=4K@0xc0003000:7 virtio_mmio.device=4K@0xc0004000:8 virtio_mmio.device=4K@0xc0005000:9 virtio_mmio.device=4K@0xc0006000:10",
+    "[    0.000000] Hypervisor detected: KVM",
+    "[    0.000000] kvm-clock: Using msrs 4b564d01 and 4b564d00",
+    "[    0.000000] kvm-clock: using sched offset of 37794517 cycles",
+    "[    0.000002] clocksource: kvm-clock: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns",
+    "[    0.000215] ACPI: Early table checksum verification disabled",
+    "[    0.000226] ACPI: RSDP 0x00000000000E0000 000024 (v02 FIRECK)",
+    "[    0.000229] ACPI: XSDT 0x00000000000A026D 00003C (v01 FIRECK FCMVXSDT 00000000 FCAT 20240119)",
+    "[    0.000233] ACPI: FACP 0x00000000000A00D5 000114 (v06 FIRECK FCVMFADT 00000000 FCAT 20240119)",
+    "[    0.000237] ACPI: DSDT 0x000000000009FD44 000391 (v02 FIRECK FCVMDSDT 00000000 FCAT 20240119)",
+    "[    0.000239] ACPI: APIC 0x00000000000A01E9 000048 (v06 FIRECK FCVMMADT 00000000 FCAT 20240119)",
+    "[    0.000241] ACPI: MCFG 0x00000000000A0231 00003C (v01 FIRECK FCMVMCFG 00000000 FCAT 20240119)",
+    "[    0.000242] ACPI: Reserving FACP table memory at [mem 0xa00d5-0xa01e8]",
+    "[    0.000243] ACPI: Reserving DSDT table memory at [mem 0x9fd44-0xa00d4]",
+    "[    0.000244] ACPI: Reserving APIC table memory at [mem 0xa01e9-0xa0230]",
+    "[    0.000244] ACPI: Reserving MCFG table memory at [mem 0xa0231-0xa026c]",
+    "[    0.011120] ACPI: Using ACPI (MADT) for SMP configuration information",
+    "[    0.011150] kvm-guest: APIC: eoi() replaced with kvm_guest_apic_eoi_write()",
+    "[    0.011164] kvm-guest: KVM setup pv remote TLB flush",
+    "[    0.011168] kvm-guest: setup PV sched yield",
+    "[    0.011176] [mem 0xc0000000-0xeebfffff] available for PCI devices",
+    "[    0.011178] Booting paravirtualized kernel on KVM",
+    "[    0.011642] kvm-guest: PV spinlocks enabled",
+    "[    0.011646] Kernel command line: reboot=k panic=1 nomodule ip=169.254.0.2::169.254.0.1:255.255.255.255:::off:169.254.0.1:: psi=1 ro i8042.nomux init=/opt/vercel/celld-init.sh i8042.noaux i8042.dumbkbd quiet root_container_telemetry_sockets=apm build_version=2026.11.20-18b806b9453c0071fa35c268e0c4ea72daf7a06b console=ttyS0 i8042.nopnp remove_blocked_ca_roots=1 pci=off virtio_mmio.device=4K@0xc0001000:5 root=/dev/vda rw virtio_mmio.device=4K@0xc0002000:6 virtio_mmio.device=4K@0xc0003000:7 virtio_mmio.device=4K@0xc0004000:8 virtio_mmio.device=4K@0xc0005000:9 virtio_mmio.device=4K@0xc0006000:10",
+    "[    0.040908] ACPI: Core revision 20250807",
+    "[    0.041333] kvm-guest: APIC: send_IPI_mask() replaced with kvm_send_ipi_mask()",
+    "[    0.041339] kvm-guest: APIC: send_IPI_mask_allbutself() replaced with kvm_send_ipi_mask_allbutself()",
+    "[    0.041341] kvm-guest: setup PV IPIs",
+    "[    0.046153] PCI: Fatal: No config space access function found",
+    "[    0.046216] ACPI: Added _OSI(Module Device)"
+  ]
+}

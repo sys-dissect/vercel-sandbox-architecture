@@ -1,0 +1,10 @@
+strace: Process 1 attached with 7 threads
+strace: Process 5 detached
+strace: Process 7 detached
+strace: Process 6 detached
+strace: Process 4 detached
+strace: Process 3 detached
+strace: Process 2 detached
+strace: Process 1 detached
+strace exit: 124
+strace lines: 3

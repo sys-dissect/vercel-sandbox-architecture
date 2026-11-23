@@ -1,0 +1,128 @@
+/dev/vdb / xfs rw,noatime,nouuid,inode64,logbufs=8,logbsize=32k,noquota 0 0
+proc /proc proc rw,relatime 0 0
+devtmpfs /dev devtmpfs rw,relatime,size=2190200k,nr_inodes=547550,mode=755 0 0
+devpts /dev/pts devpts rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=666 0 0
+shm /dev/shm tmpfs rw,nosuid,nodev,noexec,relatime,size=65536k 0 0
+mqueue /dev/mqueue mqueue rw,nosuid,nodev,noexec,relatime 0 0
+sysfs /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
+cgroup /sys/fs/cgroup cgroup2 rw,nosuid,nodev,noexec,relatime 0 0
+/dev/root /run/vercel/share xfs rw,relatime,inode64,logbufs=8,logbsize=32k,noquota 0 0
+/dev/root /etc/pki/ca-trust/source/anchors/vercel-proxy-ca.pem xfs ro,relatime,inode64,logbufs=8,logbsize=32k,noquota 0 0
+/dev/root /usr/local/share/ca-certificates/vercel-proxy-ca.crt xfs ro,relatime,inode64,logbufs=8,logbsize=32k,noquota 0 0
+devtmpfs /proc/kcore devtmpfs ro,relatime,size=2190200k,nr_inodes=547550,mode=755 0 0
+devtmpfs /proc/keys devtmpfs ro,relatime,size=2190200k,nr_inodes=547550,mode=755 0 0
+---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vdb         64G  3.6G   61G   6% /
+shm              64M     0   64M   0% /dev/shm
+/dev/root        33G  384M   33G   2% /run/vercel/share
+---
+/dev/vdb on / type xfs (rw,noatime,nouuid,inode64,logbufs=8,logbsize=32k,noquota)
+proc on /proc type proc (rw,relatime)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=2190200k,nr_inodes=547550,mode=755)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=666)
+shm on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime,size=65536k)
+mqueue on /dev/mqueue type mqueue (rw,nosuid,nodev,noexec,relatime)
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup type cgroup2 (rw,nosuid,nodev,noexec,relatime)
+/dev/vda on /run/vercel/share type xfs (rw,relatime,inode64,logbufs=8,logbsize=32k,noquota)
+/dev/vda on /etc/pki/ca-trust/source/anchors/vercel-proxy-ca.pem type xfs (ro,relatime,inode64,logbufs=8,logbsize=32k,noquota)
+/dev/vda on /usr/local/share/ca-certificates/vercel-proxy-ca.crt type xfs (ro,relatime,inode64,logbufs=8,logbsize=32k,noquota)
+devtmpfs on /proc/kcore type devtmpfs (ro,relatime,size=2190200k,nr_inodes=547550,mode=755)
+devtmpfs on /proc/keys type devtmpfs (ro,relatime,size=2190200k,nr_inodes=547550,mode=755)
+---
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+vda  254:0    0  33G  0 disk /usr/local/share/ca-certificates/vercel-proxy-ca.crt
+                             /etc/pki/ca-trust/source/anchors/vercel-proxy-ca.pem
+                             /run/vercel/share
+vdb  254:16   0  64G  0 disk /
+---
+total 8
+drwxr-xr-x  19 root   root    251 Nov 23 08:55 .
+drwxr-xr-x  19 root   root    251 Nov 23 08:55 ..
+drwxr-xr-x   2 root   root     27 Nov 23 08:55 .rock
+lrwxrwxrwx   1 root   root      7 Nov 23 08:55 bin -> usr/bin
+drwxr-xr-x   2 root   root      6 Apr 20  2026 boot
+drwxr-xr-x   7 root   root   2300 Nov 23 14:12 dev
+drwxr-xr-x  59 root   root   4096 Nov 23 14:27 etc
+drwxr-xr-x   3 root   root     20 Nov 23 08:55 home
+lrwxrwxrwx   1 root   root      7 Nov 23 08:55 lib -> usr/lib
+lrwxrwxrwx   1 root   root      9 Nov 23 08:55 lib64 -> usr/lib64
+drwxr-xr-x   2 root   root      6 Nov  6 10:27 media
+drwxr-xr-x   2 root   root      6 Nov  6 10:27 mnt
+drwxr-xr-x   2 root   root      6 Nov  6 10:27 opt
+dr-xr-xr-x 105 root   root      0 Nov 23 14:13 proc
+drwx------   8 root   root    127 Nov 23 14:27 root
+drwxr-xr-x  11 root   root    158 Nov 23 14:27 run
+lrwxrwxrwx   1 root   root      8 Nov 23 08:55 sbin -> usr/sbin
+drwxr-xr-x   2 root   root      6 Nov  6 10:27 srv
+dr-xr-xr-x  12 root   root      0 Nov 23 14:12 sys
+drwxrwxrwt   4 root   root    109 Nov 23 14:27 tmp
+drwxr-xr-x  12 root   root    133 Nov  6 10:27 usr
+drwxr-xr-x  11 root   root    139 Nov  6 10:28 var
+drwxr-xr-x   9 ubuntu ubuntu  160 Nov 23 14:27 vercel
+---
+/vercel:
+total 4
+drwxr-xr-x  9 ubuntu ubuntu 160 Nov 23 14:27 .
+drwxr-xr-x 19 root   root   251 Nov 23 08:55 ..
+drwxr-xr-x  4 ubuntu ubuntu  37 Nov 23 14:18 .cache
+drwxr-xr-x  3 ubuntu ubuntu  17 Nov 23 08:55 .codex
+drwxr-xr-x  5 ubuntu ubuntu  49 Nov 23 14:19 .config
+drwxr-xr-x  4 ubuntu ubuntu  29 Nov 23 08:55 .global
+drwxr-xr-x  5 ubuntu ubuntu  43 Nov 23 08:55 .local
+drwxr-xr-x  3 ubuntu ubuntu  56 Nov 23 08:55 .npm
+-rw-------  1 ubuntu ubuntu  27 Nov 23 08:55 .npmrc
+-rw-r--r--  1 ubuntu ubuntu   0 Nov 23 08:55 .sudo_as_admin_successful
+drwxr-xr-x  2 root   root   216 Nov 23 14:27 vercel-evidence
+---
+autofs
+console
+cpu
+cpu_dma_latency
+cuse
+fd
+full
+fuse
+hwrng
+kmsg
+loop-control
+loop0
+loop1
+loop2
+loop3
+loop4
+loop5
+loop6
+loop7
+mem
+mqueue
+net
+null
+nvme-fabrics
+port
+ptmx
+ptp0
+pts
+random
+shm
+snapshot
+stderr
+stdin
+stdout
+tty
+tty0
+tty1
+tty10
+tty11
+tty12
+tty13
+tty14
+tty15
+tty16
+tty17
+tty18
+tty19
+tty2
+tty20
+tty21

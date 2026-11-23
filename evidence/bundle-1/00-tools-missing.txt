@@ -1,0 +1,7 @@
+MISSING: strace
+MISSING: tcpdump
+MISSING: gdb
+MISSING: objdump
+MISSING: readelf
+MISSING: strings
+installing missing tools (apt-get, max 120s)...

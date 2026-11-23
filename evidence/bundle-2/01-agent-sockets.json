@@ -1,0 +1,134 @@
+{
+  "sockets": {
+    "/run/vercel/share/init.sock": {
+      "exists": true,
+      "responses": {
+        "/": [
+          "HTTP/1.1 404 Not Found",
+          "Content-Type: text/plain; charset=utf-8",
+          "X-Content-Type-Options: nosniff",
+          "Date: Mon, 23 Nov 2026 14:32:14 GMT",
+          "Content-Length: 19"
+        ],
+        "/health": [
+          "HTTP/1.1 404 Not Found",
+          "Content-Type: text/plain; charset=utf-8",
+          "X-Content-Type-Options: nosniff",
+          "Date: Mon, 23 Nov 2026 14:32:14 GMT",
+          "Content-Length: 19"
+        ],
+        "/version": [
+          "HTTP/1.1 404 Not Found",
+          "Content-Type: text/plain; charset=utf-8",
+          "X-Content-Type-Options: nosniff",
+          "Date: Mon, 23 Nov 2026 14:32:14 GMT",
+          "Content-Length: 19"
+        ],
+        "/status": [
+          "HTTP/1.1 404 Not Found",
+          "Content-Type: text/plain; charset=utf-8",
+          "X-Content-Type-Options: nosniff",
+          "Date: Mon, 23 Nov 2026 14:32:14 GMT",
+          "Content-Length: 19"
+        ],
+        "/v1/status": [
+          "HTTP/1.1 404 Not Found",
+          "Content-Type: text/plain; charset=utf-8",
+          "X-Content-Type-Options: nosniff",
+          "Date: Mon, 23 Nov 2026 14:32:14 GMT",
+          "Content-Length: 19"
+        ]
+      }
+    },
+    "/run/cell/cell.sock": {
+      "exists": false,
+      "responses": {}
+    },
+    "/run/apm/apm.sock": {
+      "exists": false,
+      "responses": {}
+    }
+  },
+  "binary": {
+    "size": 11333794,
+    "go_metadata": "N/A ([Errno 2] No such file or directory: 'go')",
+    "routes_and_handlers": [
+      ":protocoI99",
+      "protocol",
+      "proto3_oH",
+      ".proto",
+      ":protocoI99",
+      "protocol",
+      "Handler",
+      "protobuf",
+      "\tprotocols",
+      "runHandler",
+      "NewHandler",
+      "MaxHandlers",
+      "curHandlers",
+      "findHandler",
+      "protoUnwrap",
+      "RegisterSink",
+      "RegisterFile",
+      "RegisterEnum",
+      "*http.Handler",
+      "net/textproto",
+      "applyToHandler",
+      "scheduleHandler",
+      "*h2c.h2cHandler",
+      "*protowire.Type",
+      "RegisterMessage",
+      "*connect.Handler",
+      "protocolHandlers",
+      "*textproto.Error",
+      "unstartedHandlers",
+      "*http.HandlerFunc"
+    ]
+  },
+  "pid1_fds": {
+    "0": {
+      "target": "pipe:[1091]",
+      "info": "pos:\t0\nflags:\t00\nmnt_id:\t14\nino:\t1091"
+    },
+    "1": {
+      "target": "pipe:[1089]",
+      "info": "pos:\t0\nflags:\t01\nmnt_id:\t14\nino:\t1089"
+    },
+    "2": {
+      "target": "pipe:[1090]",
+      "info": "pos:\t0\nflags:\t01\nmnt_id:\t14\nino:\t1090"
+    },
+    "3": {
+      "target": "/sys/fs/cgroup/cpu.max",
+      "info": "pos:\t0\nflags:\t02100000\nmnt_id:\t76\nino:\t417"
+    },
+    "4": {
+      "target": "socket:[1112]",
+      "info": "pos:\t0\nflags:\t02004002\nmnt_id:\t10\nino:\t1112\nscm_fds: 0"
+    },
+    "5": {
+      "target": "anon_inode:[eventpoll]",
+      "info": "pos:\t0\nflags:\t02000002\nmnt_id:\t15\nino:\t21\ntfd:        4 events: 8000201d data: 3fcc0f03ad000003  pos:0 ino:458 sdev:9\ntfd:        6 events:       19 data:                0  pos:0 ino:15 sdev:e\ntfd:        7 events: 8000201d data: 3fcc0f03a8000062  pos:0 ino:13e6 sdev:9\ntfd:       10 events: 8000201d data: 3fcbebb156000028  pos:0 ino:13e9 sdev:d\ntfd:        8 events: 8000201d data: 3fcc0f03aa00003b  pos:0 ino:13e8 sdev:d"
+    },
+    "6": {
+      "target": "anon_inode:[eventfd]",
+      "info": "pos:\t0\nflags:\t02004002\nmnt_id:\t15\nino:\t21\neventfd-count:                0\neventfd-id: 2\neventfd-semaphore: 0"
+    },
+    "7": {
+      "target": "socket:[5094]",
+      "info": "pos:\t0\nflags:\t02004002\nmnt_id:\t10\nino:\t5094\nscm_fds: 0"
+    },
+    "8": {
+      "target": "pipe:[5096]",
+      "info": "pos:\t0\nflags:\t02004000\nmnt_id:\t14\nino:\t5096"
+    },
+    "10": {
+      "target": "pipe:[5097]",
+      "info": "pos:\t0\nflags:\t02004000\nmnt_id:\t14\nino:\t5097"
+    },
+    "15": {
+      "target": "anon_inode:[pidfd]",
+      "info": "pos:\t0\nflags:\t02000002\nmnt_id:\t4\nino:\t2481\nPid:\t1872\nNSpid:\t1872"
+    }
+  }
+}

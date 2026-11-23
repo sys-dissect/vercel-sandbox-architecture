@@ -1,0 +1,4 @@
+crw------- 1 root root 10, 259 Nov 23 14:12 /dev/vsock
+no vsock/virtio devs
+---
+vsock

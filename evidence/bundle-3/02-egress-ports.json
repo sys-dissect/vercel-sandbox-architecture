@@ -1,0 +1,86 @@
+[
+  {
+    "port": 21,
+    "protocol": "FTP",
+    "target": "ftp.gnu.org",
+    "status": "ALLOWED",
+    "latency_ms": 32.56
+  },
+  {
+    "port": 22,
+    "protocol": "SSH",
+    "target": "github.com",
+    "status": "ALLOWED",
+    "latency_ms": 1.99
+  },
+  {
+    "port": 25,
+    "protocol": "SMTP",
+    "target": "smtp.gmail.com",
+    "status": "BLOCKED/TIMEOUT (errno 11)",
+    "latency_ms": 1502.44
+  },
+  {
+    "port": 53,
+    "protocol": "DNS (TCP)",
+    "target": "1.1.1.1",
+    "status": "ALLOWED",
+    "latency_ms": 1.13
+  },
+  {
+    "port": 80,
+    "protocol": "HTTP",
+    "target": "example.com",
+    "status": "ALLOWED",
+    "latency_ms": 2.28
+  },
+  {
+    "port": 123,
+    "protocol": "NTP (UDP)",
+    "target": "pool.ntp.org",
+    "status": "BLOCKED/TIMEOUT (errno 11)",
+    "latency_ms": 1502.77
+  },
+  {
+    "port": 389,
+    "protocol": "LDAP",
+    "target": "ldap.google.com",
+    "status": "ALLOWED",
+    "latency_ms": 3.09
+  },
+  {
+    "port": 443,
+    "protocol": "HTTPS",
+    "target": "cloudflare.com",
+    "status": "ALLOWED",
+    "latency_ms": 2.56
+  },
+  {
+    "port": 445,
+    "protocol": "SMB",
+    "target": "microsoft.com",
+    "status": "BLOCKED/TIMEOUT (errno 11)",
+    "latency_ms": 1501.27
+  },
+  {
+    "port": 465,
+    "protocol": "SMTPS",
+    "target": "smtp.gmail.com",
+    "status": "ALLOWED",
+    "latency_ms": 2.31
+  },
+  {
+    "port": 587,
+    "protocol": "Submission",
+    "target": "smtp.gmail.com",
+    "status": "ALLOWED",
+    "latency_ms": 2.19
+  },
+  {
+    "port": 8080,
+    "protocol": "HTTP-Alt",
+    "target": "1.1.1.1",
+    "status": "ALLOWED",
+    "latency_ms": 1.46
+  }
+]
