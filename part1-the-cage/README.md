@@ -4,7 +4,7 @@ The VM itself: what the sandbox runs on, what it is allowed to do, and what conf
 
 ## The hypervisor is Firecracker on KVM
 
-The guest kernel reports "Hypervisor detected: KVM" and "Booting paravirtualized kernel on KVM". It uses kvm-clock, PV spinlocks, PV remote TLB flush, and PV sched yield. The ACPI tables carry the Firecracker signature: OEM ID `FIRECK`, table IDs `FCVMFADT`, `FCVMDSDT`, `FCVMMADT`, compiler `FCAT 20240119`. The kernel command line has `pci=off` and six `virtio_mmio.device` entries; dmesg adds "PCI: Fatal: No config space access function found" and "DMI not present or invalid". There is no PCI bus and no DMI. This is the same Firecracker ACPI signature as the Google Jules microVM.
+The guest kernel reports "Hypervisor detected: KVM" and "Booting paravirtualized kernel on KVM". It uses kvm-clock, PV spinlocks, PV remote TLB flush, and PV sched yield. The ACPI tables carry the Firecracker signature: OEM ID `FIRECK`, table IDs `FCVMFADT`, `FCVMDSDT`, `FCVMMADT`, compiler `FCAT 20240119`. The I/O memory map adds an Amazon marker: an ACPI device `AMZNC10C:00` at 0x000de000. That is the first direct guest-visible marker supporting AWS as the host platform (Tier 2 — the AMZN ID could be Firecracker's emulation rather than the physical host, but it is a concrete Amazon marker in the guest's ACPI namespace). The kernel command line has `pci=off` and six `virtio_mmio.device` entries; dmesg adds "PCI: Fatal: No config space access function found" and "DMI not present or invalid". There is no PCI bus and no DMI. This is the same Firecracker ACPI signature as the Google Jules microVM.
 
 The six virtio-mmio devices (slots 5–10, at 0xc0001000–0xc0006000) are, by type ID: memory balloon (0x0005), block (0x0002), block (0x0002), network (0x0001), vsock (0x0013), entropy/rng (0x0004). Two block devices, one network device, one vsock device, one balloon, one rng. There is no virtio-console device. The interrupt counts show the block and network devices doing the most work, and vsock with 3,452 interrupts — active, not idle.
 
@@ -19,6 +19,20 @@ Three of those parameters are Vercel-specific and unknown to the kernel (`root_c
 One discrepancy to record: the command line says `root=/dev/vda`, but the actual root filesystem is `/dev/vdb`. The init evidently pivots or overrides it. Do not claim the root disk is vda.
 
 The distribution is Ubuntu 26.04.1 LTS (Resolute Raccoon). The sandbox was 14 minutes old when the first probe ran.
+
+## The kernel configuration
+
+The full kernel config is in `evidence/bundle-4/kernel-config.gz` (Linux 6.18.56, 3,906 lines, 1,531 options enabled, 1,474 not set). It is a lean, purpose-built guest kernel, and it explains several observations from first principles.
+
+There is no LSM at all. Only `CONFIG_SECURITYFS=y` is set. There is no Yama, AppArmor, SELinux, Landlock, Tomoyo, or Smack compiled in, and no `CONFIG_LSM=` line. That is why `/proc/self/attr/current` does not exist, `/sys/kernel/security` is empty, and there is no yama sysctl.
+
+KASLR is off (`# CONFIG_RANDOMIZE_BASE is not set`), so the kernel base address is fixed at 0xffffffff81000000 — confirmed by `/proc/kallsyms` showing `_stext` at exactly that address. Lockdown is off (`# CONFIG_SECURITY_LOCKDOWN_LSM is not set`). There is no heap zeroing on alloc or free (`INIT_ON_ALLOC_DEFAULT_ON` and `INIT_ON_FREE_DEFAULT_ON` are not set), no slab freelist randomization, no static usermode helper, and no stackleak plugin.
+
+Seccomp is on (`CONFIG_SECCOMP=y`, `CONFIG_SECCOMP_FILTER=y`). eBPF is on (`CONFIG_BPF=y`, `CONFIG_BPF_SYSCALL=y`, `CONFIG_BPF_JIT=y`, `CONFIG_BPF_JIT_ALWAYS_ON=y`) with unprivileged BPF off by default (`CONFIG_BPF_UNPRIV_DEFAULT_OFF=y`) — only root can use eBPF, which matches `BPF_MAP_CREATE` succeeding as root. `CONFIG_KPROBES=y`. But ftrace is not compiled in (`# CONFIG_FTRACE is not set`), so there is no function tracer and no ftrace tracefs — that is why mounting tracefs fails.
+
+Modules are compiled in (`CONFIG_MODULES=y`, `CONFIG_MODULE_SIG=y`, `CONFIG_MODULE_SIG_ALL=y`) but disabled at runtime by the `nomodule` boot argument and `modules_disabled=1`. All namespaces are enabled (user, pid, net, ipc, uts, time, cgroup). io_uring is on (`CONFIG_IO_URING=y`) — a real kernel, unlike gVisor, which disables it. Vsock is fully enabled (`CONFIG_VSOCKETS=y`, `CONFIG_VSOCKETS_DIAG=y`, `CONFIG_VSOCKETS_LOOPBACK=y`, `CONFIG_VIRTIO_VSOCKETS=y`). `CONFIG_VIRTIO_CONSOLE=y` is compiled in, but no virtio-console device is attached — the guest console is serial ttyS0, and the driver is unused. `CONFIG_VIRTIO_PCI=y` is likewise compiled in but unused (`pci=off`). There is no KVM host support in the guest kernel; it is a guest-only build.
+
+Hardening is mixed. Stack protector (strong) and kernel stack offset randomization are on, the slab freelist is hardened, and `/dev/mem` is restricted (`CONFIG_STRICT_DEVMEM=y`, though `/proc/kcore` is masked by a bind-mount). But KASLR, lockdown, and heap/stack zeroing are all off. Netfilter is fully enabled (`CONFIG_NETFILTER=y`, `CONFIG_NF_TABLES=y`, `CONFIG_IP_NF_IPTABLES=y`, `CONFIG_IP6_NF_IPTABLES=y`), yet the guest image has no `iptables` or `nft` command-line tools — `iptables-save` and `nft` both report \"command not found\". The firewall rules cannot be inspected or modified from inside the guest; that is a tooling gap, not evidence of \"no firewall\". The egress blocks (port 25, 445, UDP 123) are enforced host-side or by the proxy.
 
 ## The CPU is the real host CPU
 

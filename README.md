@@ -15,7 +15,7 @@ Read these before citing anything in this repo.
 - The TCP 23456 listener is attributed to `sandbox-init` by elimination (it is the only Vercel process and holds the sockets). `ss` never showed the owning process by name. That attribution is Tier 2.
 - `cell.sock` and `apm.sock` were listening at 14:27 UTC and gone at 14:32 UTC. They are transient. Do not present them as persistent listeners, and their owning processes were never identified.
 - The disk rate numbers (529K 4K ops/sec, 2651 MB/s sequential) are burst measurements over 2 ms and 12 ms. They are not sustained rates and should not be cited as throughput.
-- The host identity claims that circulated during the audit — AWS, us-east-1, a specific EC2 reverse-DNS name, an m6i/c6i.metal instance type — are unverified. They do not appear in the evidence bundles. What the guest can see is a KVM host with an Ice Lake-SP CPU; the cloud provider and instance type are not observable from inside.
+- The host identity claims that circulated during the audit — AWS, us-east-1, a specific EC2 reverse-DNS name, an m6i/c6i.metal instance type — are unverified. They do not appear in the evidence bundles. What the guest can see is a KVM host with an Ice Lake-SP CPU, plus one Amazon marker: an ACPI device `AMZNC10C:00` in the I/O memory map (evidence/bundle-4/iomem.txt). That supports AWS as the host platform (Tier 2 — the AMZN ID could be Firecracker's emulation), but the region and instance type remain unverified and are not observable from inside.
 - The virtio device list is balloon, block, block, network, vsock, rng. There is no virtio-console device. An earlier draft of the host profile listed "console" — that was wrong.
 - `systemd-detect-virt` prints "docker". That is a mis-detection. The sandbox is a Firecracker microVM, not Docker.
 - The `tailcat` process (PID 923) is the operator's own tool, run inside the sandbox to reach it over his tailnet. Its traffic is excluded from the Vercel findings.
@@ -56,6 +56,7 @@ Read these before citing anything in this repo.
 - [evidence/bundle-1/](evidence/bundle-1/): the first probe bundle (29 files, 2026-11-23 14:27 UTC). The root-tailored one-shot probe.
 - [evidence/bundle-2/](evidence/bundle-2/): the follow-up bundle (7 JSON, 14:32 UTC). Agent sockets, hypervisor topology, vsock, seccomp, kernel tracing, gateway, CPU/storage.
 - [evidence/bundle-3/](evidence/bundle-3/): the defensive bundle (5 JSON). The CA certificate, egress ports, speculative mitigations, disk rates, memory/RNG. The binary and the cert PEM are not in the repo.
+- [evidence/bundle-4/](evidence/bundle-4/): the expert bundle (8 files). The kernel config (`kernel-config.gz`, Linux 6.18.56), I/O memory map, PID 1 memory maps and smaps rollup, zoneinfo, and the iptables/nftables tooling check.
 
 ## Methodology
 
